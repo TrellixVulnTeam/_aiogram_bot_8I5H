@@ -5,7 +5,7 @@ from keyboards.default import start_menu
 from keyboards.inline.callback_datas import jameco_callback
 from keyboards.inline import jameco, cancel
 from loader import dp, bot
-from data.dialog import about_college, library, professions, address, call_back
+from data.dialog import about_college, library, professions, address, call_back, required_documents
 
 
 # ---------------------------Main Menu About College-----------------------
@@ -58,6 +58,14 @@ async def info_about_college(callback: CallbackQuery):
                                 text=call_back,
                                 reply_markup=cancel)
 
+
+# ---------------------------TO Enter College-----------------------
+@dp.callback_query_handler(jameco_callback.filter(btn_name='to_enter_college'))
+async def to_enter_college(callback: CallbackQuery):
+    await bot.edit_message_text(message_id=callback.message.message_id,
+                                chat_id=callback.message.chat.id,
+                                text=required_documents,
+                                reply_markup=cancel)
 
 # ---------------------------Back to Main Menu-----------------------
 @dp.callback_query_handler(jameco_callback.filter(btn_name='menu'))

@@ -4,19 +4,21 @@ from .callback_datas import jameco_callback
 jameco = InlineKeyboardMarkup(row_width=2,
                               inline_keyboard=[
                                   [
-                                      InlineKeyboardButton(text='Колледж туралы',
+                                      InlineKeyboardButton(text='Колледж туралы 🏫',
                                                            callback_data=jameco_callback.new(btn_name='about')),
-                                      InlineKeyboardButton(text='Мамандықтар',
+                                      InlineKeyboardButton(text='Мамандықтар 👨‍🎓',
                                                            callback_data=jameco_callback.new(btn_name='professions'))
                                   ],
                                   [
-                                      InlineKeyboardButton(text='Кітапхана туралы',
+                                      InlineKeyboardButton(text='Кітапхана туралы 📚',
                                                            callback_data=jameco_callback.new(btn_name='library')),
-                                      InlineKeyboardButton(text='Мекен жай',
+                                      InlineKeyboardButton(text='Мекен жай 📍',
                                                            callback_data=jameco_callback.new(btn_name='address'))
                                   ],
                                   [
-                                      InlineKeyboardButton(text='Кері байланыс',
+                                      InlineKeyboardButton(text='Колледжге түсу үшін 💯',
+                                                           callback_data=jameco_callback.new(btn_name='to_enter_college')),
+                                      InlineKeyboardButton(text='Кері байланыс 📞',
                                                            callback_data=jameco_callback.new(btn_name='callback'))
                                   ],
                                   [
