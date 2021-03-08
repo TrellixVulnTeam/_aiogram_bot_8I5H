@@ -1,5 +1,5 @@
 from .start import dp
-from .menu import dp
-from .inline_testing import dp
+from .set_name import dp
+from .help import dp
 
 __all__ = ['dp']
