@@ -19,6 +19,9 @@ async def set_user_name(message: types.Message):
 async def answer_1(message: types.Message, state: FSMContext):
     answer = message.text
 
-    async with state.proxy() as data:
-        data['answer1'] = answer
-    await message.answer(text=f'your name is {data["answer1"]}')
+    async with state.proxy() as save_data:
+        save_data['answer1'] = answer
+    await message.answer(text=f'your nick is {save_data["answer1"]}')
+
+    await state.reset_state(with_data=False)
+

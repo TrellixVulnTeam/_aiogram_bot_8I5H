@@ -1,12 +1,12 @@
 from aiogram import types
-from aiogram.dispatcher.filters import Text, Command
+from aiogram.types import ReplyKeyboardRemove
+from aiogram.dispatcher.filters import Text
 from aiogram.dispatcher.filters.builtin import CommandStart
-from aiogram.utils.markdown import hbold, hlink, hitalic
+from aiogram.utils.markdown import hbold
 from data.config import ADMINS
 from data.dialog import information_about_bot
 from keyboards.default import start_menu
-from keyboards.inline import service
-
+from keyboards.inline import service, jameco
 from loader import dp
 
 
@@ -18,7 +18,7 @@ async def start_bot(message: types.Message):
     await message.answer(f'Главное меню \n\n'
                          f'/help - 🆘 Services \n'
                          f'/survey - 🏢 Dormitory\n'
-                         f'/profile - 🏫 College \n'
+                         f'/college - 🏫 College \n'
                          f'/subs -  👤 Profile \n'
                          f'/about - 🤖 About Smart Jameco Bot',
                          reply_markup=start_menu)
@@ -32,7 +32,7 @@ async def show_services(message: types.Message):
 
 @dp.message_handler(Text(equals='🤖 About Smart Jameco Bot'))
 async def bot_info(message: types.Message):
-    await message.answer(text=information_about_bot)
+    await message.answer(text=information_about_bot, reply_markup=ReplyKeyboardRemove())
 
 
 @dp.message_handler(Text(equals='👤 Profile'))
@@ -42,3 +42,11 @@ async def get_user_info(msg: types.Message):
                           f'{hbold("Номер телефона: ")}-\n'
                           f'{hbold("E-mail: ")}-\n'
                           f'{hbold("Язык по умолчанию: ")}-')
+
+
+# ------------------------------There Inline buttons about College-------------------------------
+@dp.message_handler(Text(equals='🏫 College'))
+async def college_info(message: types.Message):
+    await message.answer(text='Hi there', reply_markup=jameco)
+    await message.answer(text='Ok', reply_markup=ReplyKeyboardRemove())
+

@@ -1,2 +1,2 @@
-from .callback_datas import friend_callback
 from .inline_service import service
+from .college_inline import jameco
