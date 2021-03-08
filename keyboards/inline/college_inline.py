@@ -24,3 +24,9 @@ jameco = InlineKeyboardMarkup(row_width=2,
                                                            callback_data=jameco_callback.new(btn_name='menu'))
                                   ]
                               ])
+
+cancel = InlineKeyboardMarkup(row_width=1, inline_keyboard=[
+    [
+        InlineKeyboardButton(text='Cancel', callback_data=jameco_callback.new('jameco'))
+    ]
+])

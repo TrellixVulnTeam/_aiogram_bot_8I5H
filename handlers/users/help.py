@@ -27,7 +27,7 @@ async def main_menu(call: CallbackQuery):
     await call.message.answer(f'Главное меню \n\n'
                               f'/help - 🆘 Services \n'
                               f'/survey - 🏢 Dormitory\n'
-                              f'/profile - 🏫 College \n'
-                              f'/subs -  👤 Profile \n'
+                              f'/college - 🏫 College \n'
+                              f'/profile -  👤 Profile \n'
                               f'/about - 🤖 About Smart Jameco Bot',
                               reply_markup=start_menu)

@@ -2,7 +2,7 @@ from aiogram import types
 from aiogram.types import ReplyKeyboardRemove
 from aiogram.dispatcher.filters import Text
 from aiogram.dispatcher.filters.builtin import CommandStart
-from aiogram.utils.markdown import hbold
+from aiogram.utils.markdown import hbold, hlink
 from data.config import ADMINS
 from data.dialog import information_about_bot
 from keyboards.default import start_menu
@@ -30,23 +30,25 @@ async def show_services(message: types.Message):
                          reply_markup=service)
 
 
+# ------------------------------All Information About Bot-------------------------------
 @dp.message_handler(Text(equals='🤖 About Smart Jameco Bot'))
 async def bot_info(message: types.Message):
     await message.answer(text=information_about_bot, reply_markup=ReplyKeyboardRemove())
 
 
+# ------------------------------All Information About User(e-mail, phone, number, etc.)-------------------------------
 @dp.message_handler(Text(equals='👤 Profile'))
 async def get_user_info(msg: types.Message):
     await msg.answer(text=f'{hbold("Имя пользователя: ")} {msg.from_user.username}\n'
                           f'{hbold("ФИО: ")}-\n'
                           f'{hbold("Номер телефона: ")}-\n'
                           f'{hbold("E-mail: ")}-\n'
-                          f'{hbold("Язык по умолчанию: ")}-')
+                          f'{hbold("Язык по умолчанию: ")}-', reply_markup=ReplyKeyboardRemove())
 
 
 # ------------------------------There Inline buttons about College-------------------------------
 @dp.message_handler(Text(equals='🏫 College'))
 async def college_info(message: types.Message):
-    await message.answer(text='Hi there', reply_markup=jameco)
-    await message.answer(text='Ok', reply_markup=ReplyKeyboardRemove())
+    await message.answer(text=f'{message.from_user.username}, қызметті таңдаңыз', reply_markup=jameco)
+
 

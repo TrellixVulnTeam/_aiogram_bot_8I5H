@@ -1,6 +1,5 @@
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 
-
 start_menu = ReplyKeyboardMarkup(
     keyboard=[
         [
@@ -8,8 +7,8 @@ start_menu = ReplyKeyboardMarkup(
             KeyboardButton(text='🏢 Dormitory')
         ],
         [
-            KeyboardButton(text='🏫 College'),
-            KeyboardButton(text='👤 Profile')
+            KeyboardButton(text='👤 Profile'),
+            KeyboardButton(text='🏫 College')
         ],
         [
             KeyboardButton(text='🤖 About Smart Jameco Bot')
