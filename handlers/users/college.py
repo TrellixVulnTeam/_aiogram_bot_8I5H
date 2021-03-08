@@ -1,6 +1,9 @@
 from aiogram import types
 from aiogram.dispatcher.filters import Command
+from aiogram.dispatcher.webhook import SendLocation
 from aiogram.types import CallbackQuery
+from aiogram.utils.markdown import hlink
+
 from keyboards.default import start_menu
 from keyboards.inline.callback_datas import jameco_callback
 from keyboards.inline import jameco, cancel
@@ -48,6 +51,10 @@ async def info_about_college(callback: CallbackQuery):
                                 chat_id=callback.message.chat.id,
                                 text=address,
                                 reply_markup=cancel)
+    await bot.send_message(callback.message.chat.id,
+                           text=hlink('Location', 'https://www.google.com/maps/place/JIC/@42.9180431,71.3731849,15z/'
+                                                  'data=!4m5!3m4!1s0x0:0xf7306df39a933728!8m2!3d42.'
+                                                  '9180431!4d71.3731849'))
 
 
 # ---------------------------Information About Address-----------------------
